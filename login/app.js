@@ -1,4 +1,66 @@
-const firebaseConfig = {
+function loginEmail(){
+  var email = document.getElementById('email').Value;
+  var password = document.getElementById('password').Value;
+
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(()=>{
+      alert('Usuário logado');
+  })
+  .catch(err =>{
+      console.log('error', error)
+  })
+}
+
+firebase.initializeApp(firebaseConfig);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*const firebaseConfig = {
     apiKey: "AIzaSyBN9abGyvsbWfQ7P6hbvXp1-BECwvmI8Ho",
     authDomain: "projeto2miateste-1af7e.firebaseapp.com",
     projectId: "projeto2miateste-1af7e",
@@ -26,4 +88,4 @@ const firebaseConfig = {
         const errorMessage = error.message
         console.error("Error de autenticação", errorMessage)
     })
-  })
+  })*/
