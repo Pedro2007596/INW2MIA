@@ -1,10 +1,12 @@
+//configure a conexão com o mongodb
+
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://127.0.0.1:27017/escola',
     {
         useNewUrlParser : true,
         useUnifiedTopology: true,
-        serverSelectionTimeoutMS : 30000
+        serverSelectionTimeoutMS : 20000
 });
 
 const db = mongoose.connection;
@@ -21,25 +23,22 @@ const alunoSchema = new mongoose.Schema({
     Turma : String
 });
 
-const Aluno = mongoose.model("Aluno", alunoSchema);
+const Alunos = mongoose.model("Aluno", alunoSchema);
 
-const paulo = new Aluno({
+const paulo = new Alunos({
     matricula : 'rm15665',
     Nome : "Paulo Augusto da Silva",
     Idade : 18,
     Turma : '2MIA'
 });
+paulo.save();
 
-const maria = new Aluno({
+const maria = new Alunos({
     matricula : 'rm15663',
     Nome : "Maria Carla",
     Idade : 18,
     Turma : '2MIA'
 });
 
-paulo.save();
 maria.save();
 
-Aluno.findOne({Nome : 'Maria Carla'}, function(err, Aluno){
-    console.log(Aluno)
-})
